@@ -14,24 +14,20 @@ var createRules = function() {
   ]);
 };
 
-var handlePageActionClick = function() {
-  console.log('click. send message');
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    var tab = tabs[0];
-    console.log(tab.url);
+var handlePageActionClick = function(tab) {
+  console.log(tab.url);
 
-    chrome.storage.sync.get(tab.url, function(data){
-      console.log('DATA', data);
-      var hide = !(data[tab.url] && data[tab.url].hidden);
-      var action =  hide ? 'hide' : 'show';
-      chrome.tabs.sendMessage(tab.id, {action: action}, function(response) {
-        if (response.success) {
-          var update = {};
-          update[tab.url] = {hidden: hide};
-          console.log('UPDATE', update);
-          chrome.storage.sync.set(update);
-        }
-      });
+  chrome.storage.sync.get(tab.url, function(data){
+    console.log('DATA', data);
+    var hide = !(data[tab.url] && data[tab.url].hidden);
+    var action =  hide ? 'hide' : 'show';
+    chrome.tabs.sendMessage(tab.id, {action: action}, function(response) {
+      if (response.success) {
+        var update = {};
+        update[tab.url] = {hidden: hide};
+        console.log('UPDATE', update);
+        chrome.storage.sync.set(update);
+      }
     });
   });
 };
