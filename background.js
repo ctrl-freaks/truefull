@@ -24,10 +24,6 @@ var handlePageActionClick = function(tab) {
   });
 };
 
-chrome.webNavigation.onCompleted.addListener(function(details) {
-  console.log(details)
-});
-
 // When the extension is installed or upgraded ...
 chrome.runtime.onInstalled.addListener(function() {
   // Add listener
