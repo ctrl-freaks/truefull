@@ -18,17 +18,11 @@ var changeHeaderDisplay = function(hide){
   return true;
 };
 
-var handleMessage = function(message) {
-  console.log('MESSAGE', message)
-}
-
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-  console.log('MESSAGE', message);
-  var success = false;
-  if (message.action === 'hide') {
-    success = changeHeaderDisplay(true);
-  } else if (message.action === 'show') {
-    success = changeHeaderDisplay();
+chrome.storage.onChanged.addListener(function(changes){
+  var thisChange = changes[location.href];
+  if (thisChange) {
+    console.log(thisChange)
+    var hide = !thisChange.newValue.hidden;
+    changeHeaderDisplay(hide);
   }
-  sendResponse({success: success});
 });

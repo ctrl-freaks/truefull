@@ -15,20 +15,12 @@ var createRules = function() {
 };
 
 var handlePageActionClick = function(tab) {
-  console.log(tab.url);
-
+  // get the state for this URL and see if it should be hidden or not
   chrome.storage.sync.get(tab.url, function(data){
-    console.log('DATA', data);
     var hide = !(data[tab.url] && data[tab.url].hidden);
-    var action =  hide ? 'hide' : 'show';
-    chrome.tabs.sendMessage(tab.id, {action: action}, function(response) {
-      if (response.success) {
-        var update = {};
-        update[tab.url] = {hidden: hide};
-        console.log('UPDATE', update);
-        chrome.storage.sync.set(update);
-      }
-    });
+    var update = {};
+    update[tab.url] = {hidden: hide};
+    chrome.storage.sync.set(update);
   });
 };
 
