@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "TrueFull for CodePen",
-  "description": "Use CodePen's Full Page View without any distractions or headers.",
+  "name": "True Full Page for CodePen",
+  "description": "Use CodePen.io Full Page View without any distractions or headers.",
   "version": "1.0",
 
   "background": {
@@ -10,8 +10,10 @@
     "persistent": false
   },
   "page_action": {
+    "default_title": "Toggle the CodePen Header",
     "default_icon": {
-      "38": "icons/shown-38.png"
+      "19": "icons/action-19.png",
+      "38": "icons/action-38.png"
     }
   },
   "content_scripts": [
@@ -22,13 +24,12 @@
     }
   ],
   "permissions": [
-    "webNavigation",
     "activeTab",
     "declarativeContent",
     "storage"
   ],
   "icons": {
-    "128": "icons/shown-128.png",
-    "64": "icons/shown-64.png"
+    "128": "icons/main-128.png",
+    "64": "icons/main-64.png"
   }
 }
