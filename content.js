@@ -1,5 +1,7 @@
 "use strict";
 
+var url = location.href;
+
 var changeHeaderDisplay = function(hide){
   var header = document.getElementById('main-header');
   var iframe = document.getElementById('result-iframe-wrap');
@@ -19,10 +21,14 @@ var changeHeaderDisplay = function(hide){
 };
 
 chrome.storage.onChanged.addListener(function(changes){
-  var thisChange = changes[location.href];
+  var thisChange = changes[url];
   if (thisChange) {
-    console.log(thisChange)
-    var hide = !thisChange.newValue.hidden;
-    changeHeaderDisplay(hide);
+    changeHeaderDisplay(thisChange.newValue.hidden);
   }
+});
+
+// on initial run revive to any old settings
+chrome.storage.sync.get(url, function(data){
+  var hide = (data[url] && data[url].hidden);
+  changeHeaderDisplay(hide);
 });
