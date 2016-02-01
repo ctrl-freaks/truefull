@@ -28,10 +28,11 @@ var handlePageActionClick = function(tab) {
   });
 };
 
+// Add listener
+chrome.pageAction.onClicked.addListener(handlePageActionClick);
+
 // When the extension is installed or upgraded ...
 chrome.runtime.onInstalled.addListener(function() {
-  // Add listener
-  chrome.pageAction.onClicked.addListener(handlePageActionClick);
   // Replace all rules ...
   chrome.declarativeContent.onPageChanged.removeRules(undefined, createRules);
 });
