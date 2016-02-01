@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "True Full Page for CodePen",
-  "description": "Use CodePen.io Full Page View without any distractions or headers.",
+  "description": "Use CodePen.io Full Page view without any distractions or headers.",
   "version": "1.0",
 
   "background": {
