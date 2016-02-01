@@ -12,8 +12,8 @@
   "page_action": {
     "default_title": "Toggle the CodePen Header",
     "default_icon": {
-      "19": "icons/action-19.png",
-      "38": "icons/action-38.png"
+      "19": "artwork/action-19.png",
+      "38": "artwork/action-38.png"
     }
   },
   "content_scripts": [
@@ -29,7 +29,7 @@
     "storage"
   ],
   "icons": {
-    "128": "icons/main-128.png",
-    "64": "icons/main-64.png"
+    "128": "artwork/main-128.png",
+    "64": "artwork/main-64.png"
   }
 }
