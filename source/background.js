@@ -15,8 +15,10 @@ var createRules = function() {
 };
 
 var handlePageActionClick = function(tab) {
+  console.log('click on', tab);
   // get the state for this URL and see if it should be hidden or not
   chrome.storage.sync.get(tab.url, function(data){
+    console.log('data', data);
     var hidden = !(data[tab.url] && data[tab.url].hidden);
     var update = {};
     update[tab.url] = {hidden: hidden};
