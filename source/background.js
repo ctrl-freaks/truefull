@@ -1,3 +1,5 @@
+console.log('background init');
+
 var createRules = function() {
   // With a new rule ...
   chrome.declarativeContent.onPageChanged.addRules([

@@ -3,7 +3,8 @@
 
   "name": "True Full Page for CodePen",
   "description": "Use CodePen.io Full Page view without any distractions or headers.",
-  "version": "1.0.1",
+  "version": "1.0.3",
+  "short_name": "truefull",
 
   "background": {
     "scripts": ["background.js"],
