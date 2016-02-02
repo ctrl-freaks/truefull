@@ -3,8 +3,9 @@
 
   "name": "True Full Page for CodePen",
   "description": "Use CodePen.io Full Page view without any distractions or headers.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "short_name": "truefull",
+  "minimum_chrome_version": "48.0",
 
   "background": {
     "scripts": ["background.js"],
