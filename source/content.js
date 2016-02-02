@@ -3,7 +3,6 @@
 var url = location.href;
 
 var changeHeaderDisplay = function(hide){
-  console.log('changeHeaderDisplay', hide);
   var header = document.getElementById('main-header');
   var iframe = document.getElementById('result-iframe-wrap');
 
@@ -22,9 +21,7 @@ var changeHeaderDisplay = function(hide){
 };
 
 // on run
-console.log('init for', url);
 chrome.storage.sync.get(url, function(data){
-  console.log('data', data);
   var hide = (data[url] && data[url].hidden);
   changeHeaderDisplay(hide);
 });
