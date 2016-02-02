@@ -24,7 +24,9 @@ var handlePageActionClick = function(tab) {
     var hidden = !(data[tab.url] && data[tab.url].hidden);
     var update = {};
     update[tab.url] = {hidden: hidden};
-    chrome.storage.sync.set(update);
+    chrome.storage.sync.set(update, function(){
+      chrome.tabs.executeScript(null, {file: 'content.js'});
+    });
   });
 };
 

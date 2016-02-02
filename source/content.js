@@ -21,15 +21,7 @@ var changeHeaderDisplay = function(hide){
   return true;
 };
 
-chrome.storage.onChanged.addListener(function(changes){
-  var thisChange = changes[url];
-  console.log('storage change. thisChange?', !!thisChange, changes);
-  if (thisChange) {
-    changeHeaderDisplay(thisChange.newValue.hidden);
-  }
-});
-
-// on initial run revive to any old settings
+// on run
 console.log('init for', url);
 chrome.storage.sync.get(url, function(data){
   console.log('data', data);
