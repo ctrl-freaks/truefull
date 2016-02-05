@@ -1,3 +1,13 @@
+var iconPaths = {
+  active: {
+    19: 'icons/active-19.png',
+    38: 'icons/active-38.png',
+  },
+  inactive: {
+    19: 'icons/inactive-19.png',
+    38: 'icons/inactive-38.png',
+  },
+};
 
 var createRules = function() {
   // With a new rule ...
@@ -21,6 +31,10 @@ var handlePageActionClick = function(tab) {
     var hidden = !(data[tab.url] && data[tab.url].hidden);
     var update = {};
     update[tab.url] = {hidden: hidden};
+    chrome.pageAction.setIcon({
+      tabId: tab.id,
+      path: hidden ? iconPaths.active : iconPaths.inactive,
+    });
     chrome.storage.sync.set(update, function(){
       chrome.tabs.executeScript(null, {file: 'content.js'});
     });
