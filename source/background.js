@@ -6,7 +6,7 @@ var createRules = function() {
       // That fires when a page's URL matches codepen.io "full"
       conditions: [
         new chrome.declarativeContent.PageStateMatcher({
-          pageUrl: { urlMatches: 'codepen.io.*full.*' },
+          pageUrl: { urlMatches: 'codepen.io.*\/(full|pen|details)\/.*' },
         })
       ],
       // And shows the extension's page action.
