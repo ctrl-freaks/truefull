@@ -6,10 +6,8 @@
 
 [CodePen](http://codepen.io) is a powerful prototyping and demoing tool; now you can show off your pens in the Full Page view without the CodePen header. Simply click the True Full Page icon in the location bar (shown only on the Full Page mode) to toggle the header on or off.
 
-Please report any bugs as issues here.
+Please report any bugs as issues here. This extension is not associated with or built by CodePen. I'm just a big fan.
 
-Just click the icon to toggle the CodePen header.
+**To use**, just click the icon to toggle the CodePen header.
 
 ![Demo](/artwork/screenshot-1.png)
-
-This extension is not associated with or built by CodePen. I'm just a big fan.
